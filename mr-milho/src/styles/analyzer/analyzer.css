@@ -1,0 +1,64 @@
+.itemImg {
+    max-height: 32px;
+    max-width: 32px;
+}
+
+.analyzerInputsContainer {
+    margin-top: 10%;
+    height: 30%;
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid black;
+    padding: 15px;
+}
+
+.analyzerInputs {
+    width: 25%;
+    background-color: black;
+    color: azure;
+
+}
+
+.analyzerView {
+    height: 100%;
+    width: 80%;
+    background-color: rgb(29, 6, 51);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.hoursAnalyzer {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.huntDisplay {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: inherit;
+}
+
+.resultsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.totalResultsAnalyzer {
+    height: 100%;
+    width: 30%;
+    border: 2px solid black;
+}
+
+.hourlyResultsAnalyzer {
+    height: 100%;
+    width: 70%;
+    border: 2px solid black;
+}

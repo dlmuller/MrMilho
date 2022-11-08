@@ -1,0 +1,102 @@
+.Header {
+    width: 100%;
+    background-color: #5985ff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: #000000 2px 2px 2px;
+
+}
+
+.img-container {
+
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+
+}
+
+.text {
+    padding-top: calc(3px + 1vh);
+    font-size: 30;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.content-btn {
+    height: 100%;
+    cursor: pointer;
+    background: none;
+    border: 0;
+    margin-right: 4vh;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    vertical-align: middle;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+    z-index: 0;
+}
+
+
+.content-btn:hover {
+    text-decoration: underline;
+    font-weight: bold;
+    transform: translateY(-8px);
+}
+
+
+.login-btn {
+    margin-right: 8vh;
+    height: 100%;
+    width: 9vh;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    color: #000000;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    transition-property: color;
+    transition-duration: 0.2s;
+    z-index: 0;
+}
+
+.acc {
+    width: 12vh;
+}
+
+
+.login-btn:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #535f80;
+    transform: scaleY(0);
+    transform-origin: 100% 50%;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+
+}
+
+.logout {
+    width: 10vh;
+}
+
+.login-btn:hover {
+    color: #ffffff;
+}
+
+.login-btn:hover:before {
+    transform: scaleY(1);
+}
