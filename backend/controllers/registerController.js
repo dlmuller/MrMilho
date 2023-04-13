@@ -1,12 +1,4 @@
-const mysql = require("mysql")
-
-const db = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "2589",
-    database: "mrmilho"
-}
-)
+const database = require('../database/db')
 
 const bcrypt = require('bcrypt');
 
@@ -32,7 +24,7 @@ const handleNewUser = async (request, response) => {
 
     else {
 
-        db.query(CHECKREGISTERSQL, (err, result) => {
+        database.db.query(CHECKREGISTERSQL, (err, result) => {
             if (result.length > 0) {
                 response.statusCode = 409;
                 response.send(JSON.stringify(errMsg[1]))
@@ -41,7 +33,7 @@ const handleNewUser = async (request, response) => {
             else if (result.length <= 0) {
 
                 let SQL = `INSERT INTO mrmilho.accounts (username, password, idaccess) VALUES ('${newUser.username}', '${hashedPwd}', '${newUser.access}')`;
-                db.query(SQL, (err, result) => {
+                database.db.query(SQL, (err, result) => {
                     console.log(err)
                     console.log(result)
                     console.log("Success")

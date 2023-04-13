@@ -6,15 +6,9 @@
 }
 
 .pageContainer {
-    border: 5px solid red;
     height: 80vh;
     width: 99vw;
     display: flex;
     flex-direction: row;
-}
-
-.analyzerMenu {
-    height: 100%;
-    width: 20%;
-    background-color: aqua;
+    justify-content: center;
 }

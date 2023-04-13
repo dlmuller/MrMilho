@@ -1,6 +1,5 @@
 import React from 'react'
 import Home from './home';
-import Teste from './teste';
 import Analyzer from './analyzer/analyzer';
 import styled from "styled-components"
 import { Routes, Route } from "react-router-dom";

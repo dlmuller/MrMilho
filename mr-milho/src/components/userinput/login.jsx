@@ -18,12 +18,15 @@ const Login = ({ setModalUser, setIsModalVisible, setIsLoggedIn }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         fetchUrl('/auth', 'POST', JSON.stringify({ username: user, password: pwd }), { setSuccess, setErrMsg })
+    }
+    useEffect(() => {
         if (success == true) {
             setIsLoggedIn(true)
             setIsModalVisible(false)
             alert('success')
         }
-    }
+    }, [success])
+
 
 
     return (

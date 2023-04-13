@@ -1,13 +1,4 @@
-const mysql = require("mysql")
-
-const db = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "2589",
-    database: "mrmilho"
-}
-)
-
+const database = require('../database/db')
 const bcrypt = require('bcrypt');
 
 const jwt = require('jsonwebtoken');
@@ -24,11 +15,10 @@ const handleLogin = async (request, response) => {
         response.statusCode = 400;
         response.json({ 'message': "username and password required" })
     } else {
-        //let SQL = `SELECT * FROM mrmilho.accounts where username="${logUser.username}" join access;`
-        let SQL = `SELECT accounts.id , accounts.username ,accounts.password, access.access FROM accounts join access on accounts.idaccess=access.idaccess where username="${logUser.username}"`
-        db.query(SQL, async (err, result) => {
+        let SQL = `SELECT accounts.id , accounts.username ,accounts.password, access.access FROM accounts join access on accounts.idaccess=access.id where username="${logUser.username}"`
+        database.db.query(SQL, async (err, result) => {
 
-            if (result.length <= 0) {
+            if (result.length == undefined) {
 
                 response.statusCode = 409;
                 response.json("User not registered")
@@ -59,7 +49,7 @@ const handleLogin = async (request, response) => {
                     )
 
                     let tokenSQL = `UPDATE mrmilho.accounts SET token=${refreshToken} WHERE username = ${logUser.username};`
-                    db.query(tokenSQL, (err, result) => {
+                    database.db.query(tokenSQL, (err, result) => {
                     });
 
                     response.statusCode = 200

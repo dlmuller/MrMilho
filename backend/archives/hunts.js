@@ -1,13 +1,24 @@
-const mysql = require("mysql")
+const database = require('../database/db')
 
-const db = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "2589",
-    database: "mrmilho"
+const getHunts = (request, response) => {
+    let SQL = `SELECT pokemons.url FROM pokemons`
+    database.db.query(SQL, (err, result) => {
+        response.statusCode = 200;
+        response.json(result);
+
+    })
 }
-)
 
+
+const getImg = (request, response) => {
+    const { key } = request.params
+    let SQL = ` pokemons.url FROM pokemons WHERE pokemons.Name = ${key}`
+    database.db.query(SQL, (err, result) => {
+        response.statusCode = 200;
+        response.json(result);
+
+    })
+}
 const getPoke = (request, response) => {
 
 
@@ -19,13 +30,15 @@ const getPoke = (request, response) => {
     let SQL =
 
         `SELECT  i.ItemName, i.ValueNpc, i.ValueMarket , i.url
-    FROM pokemons as p 
-    join droplist as d on p.id = d.idpokemon
-     join items as i on d.iditem = i.id 
+    FROM mrmilho.pokemons as p 
+    join mrmilho.droplist as d on p.id = d.idpokemon
+     join mrmilho.items as i on d.iditem = i.id 
      where p.Name = "${key}" `
 
 
-    db.query(SQL, (err, result) => {
+    database.db.query(SQL, (err, result) => {
+        console.log(result)
+        console.log(SQL)
         drops.push(result)
         response.statusCode = 200;
         response.json(drops);
@@ -36,5 +49,5 @@ const getPoke = (request, response) => {
 }
 
 const path = require('path')
-module.exports = { getPoke }
+module.exports = { getPoke, getHunts, getImg }
 

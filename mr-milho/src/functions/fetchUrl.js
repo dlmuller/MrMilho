@@ -33,7 +33,7 @@ const DELETE_HEADERS = {
 
 
 
-const fetchUrl = (url, method, body, { setSuccess, setErrMsg, setInfo }) => {
+const fetchUrl = (url, method, body, { setSuccess, setErrMsg, setInfo, setPokeImg }) => {
     let fetchmethod
 
     const post = {
@@ -68,8 +68,11 @@ const fetchUrl = (url, method, body, { setSuccess, setErrMsg, setInfo }) => {
         .then(answer => {
             console.log({ answer });
             if (answer !== undefined) {
-                console.log({ fromServer: answer })
-                setInfo(answer[0])
+                console.log({ fromServer: answer[0] })
+
+                if (url == `/hunts/electric/Raichu` || `/hunts/electric/Ampharos` || `/hunts/electric/Electabuzz`) {
+                    setInfo(answer[0])
+                }
                 if (typeof setErrMsg == 'function') setErrMsg(answer)
             } else {
                 console.log({ fromServer: "invalid answer" })

@@ -53,7 +53,7 @@ const Register = ({ setModalUser, submit }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetchUrl('/register', 'POST', JSON.stringify({ username: user, password: pwd, access: 2 }), { setSuccess, setErrMsg })
+        fetchUrl('/register', 'POST', JSON.stringify({ username: user, password: pwd, access: 3 }), { setSuccess, setErrMsg })
     }
 
 

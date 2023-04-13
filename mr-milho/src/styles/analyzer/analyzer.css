@@ -3,17 +3,117 @@
     max-width: 32px;
 }
 
+.pokeImg {
+    max-height: fit-content;
+    max-width: 64px;
+    cursor: pointer;
+    transform-origin: 100% 50%;
+    transition-duration: 0.8s;
+    transition-timing-function: ease-out;
+}
+
+.selector {
+    min-width: 100%;
+}
+
+.pokeImgActive {
+    max-height: fit-content;
+    max-width: 64px;
+    cursor: pointer;
+    transform: translateX(-50%);
+    transform-origin: 100% 50%;
+    transition-duration: 0.8s;
+    transition-timing-function: ease-out;
+}
+
+.text {
+    padding-top: calc(3px + 1vh);
+    font-size: 30;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    height: fit-content;
+    transform-origin: 100% 50%;
+    transition-duration: 0.8s;
+    transition-timing-function: ease-out;
+}
+
+.pokeImg:before {
+    background-color: #2c417d;
+}
+
+.textActive {
+    padding-top: calc(3px + 1vh);
+    font-size: 30;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    transform: scaleX(-40%);
+    transform-origin: 100% 50%;
+    transition-duration: 0.8s;
+    transition-timing-function: ease-out;
+
+}
+
+.iconContainer {
+    min-width: 100%;
+    max-height: fit-content;
+    cursor: pointer;
+    transform-origin: 100% 50%;
+    transition-duration: 0.8s;
+    transition-timing-function: ease-out;
+}
+
+.iconContainerActive {
+    min-width: 100%;
+    min-height: 24px;
+    transform: scaleY(1);
+    transform-origin: 100% 50%;
+    transition-duration: 0.8s;
+    transition-timing-function: ease-out;
+
+    background-color: #2c417d;
+    cursor: pointer
+}
+
 .analyzerInputsContainer {
-    margin-top: 10%;
-    height: 30%;
-    width: 95%;
+    max-width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid black;
+    border: 1px solid black;
+    background-color: #A6BEFF;
     padding: 15px;
 }
+
+.analyzerMenu {
+    height: 100%;
+    width: 12%;
+    background-color: #5985ff;
+    border: 2px solid rgb(0, 0, 0);
+    border-right: 0;
+    box-shadow: #000000 2px 2px 2px;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+    height: 0;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #A6BEFF;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #535f80;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #535f804b;
+}
+
 
 .analyzerInputs {
     width: 25%;
@@ -25,11 +125,13 @@
 .analyzerView {
     height: 100%;
     width: 80%;
-    background-color: rgb(29, 6, 51);
+    border: 2px solid rgb(0, 0, 0);
+    box-shadow: #000000 2px 2px 2px;
+    background-color: #5985ff;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .hoursAnalyzer {
@@ -41,24 +143,40 @@
 .huntDisplay {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     height: inherit;
+    width: 85%;
+    justify-content: center;
 }
 
 .resultsContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 100%;
+    max-height: 50%;
 }
 
 .totalResultsAnalyzer {
-    height: 100%;
+    height: fit-content;
     width: 30%;
-    border: 2px solid black;
+    border: 1px solid black;
+    background-color: #A6BEFF;
+    overflow: scroll;
+    max-height: 100%;
 }
+
 
 .hourlyResultsAnalyzer {
     height: 100%;
     width: 70%;
-    border: 2px solid black;
+    border: 1px solid black;
+    background-color: #A6BEFF;
+}
+
+.displayPokes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
 }
